@@ -24,7 +24,7 @@ public class VideoPlatform {
         }
 
          catch (IOException ioe) {
-            throw new IllegalStateException("File not found", ioe);
+            throw new IllegalArgumentException("Cannot open file for read!", ioe);
         }
     }
 

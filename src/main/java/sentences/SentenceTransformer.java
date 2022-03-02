@@ -1,52 +1,27 @@
 package sentences;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SentenceTransformer {
     public String shortenSentence(String sentence){
-        String shortSentence = "";
+        char[] chars = sentence.toCharArray();
 
-        if (sentence.substring(0, 1).equals(sentence.substring(0, 1).toLowerCase())){
+        if (Character.isLowerCase(chars[0])){
             throw new IllegalArgumentException("Must start with capital letter!");
         }
 
-        if (sentence.charAt(sentence.length()-1) != '.' &&
-                sentence.charAt(sentence.length()-1) != '!' &&
-                sentence.charAt(sentence.length()-1) != '?'){
+        if (chars[chars.length -1] != '.' &&
+                chars[chars.length -1] != '?' &&
+                chars[chars.length -1] != '!'){
             throw new IllegalArgumentException("Must end with . ! or ?");
         }
 
-        if (spaceCounter(sentence) >= 4){
-            shortSentence = sentence.substring(0, findSpaceIndexes(sentence).get(0)) +
-                    " ... " +
-                    sentence.substring(findSpaceIndexes(sentence).get(findSpaceIndexes(sentence).size()-1));
+        String[] words = sentence.split(" ");
+        if (words.length >= 5) {
+            return words[0] + " ... " + words[words.length - 1];
         } else {
-            shortSentence = sentence;
+            return sentence;
         }
-
-        return shortSentence;
     }
-
-    private int spaceCounter(String string){
-        int counter = 0;
-        for (Character c: string.toCharArray()){
-            if (c == ' '){
-                counter++;
-            }
-        }
-        return counter;
-    }
-
-    private List<Integer> findSpaceIndexes (String string){
-        List<Integer> indexes = new ArrayList<>();
-        for (int i = 1; i < string.length() - 1; i++){
-            if (string.charAt(i) == ' '){
-                indexes.add(i);
-            }
-        }
-        return indexes;
-    }
-
-
 }

@@ -16,6 +16,7 @@ public class VideoPlatform {
     public void readDataFromFile(Path path){
         try {
             Scanner scanner = new Scanner(path);
+            scanner.nextLine();
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] temp = line.split(";");
@@ -30,7 +31,7 @@ public class VideoPlatform {
 
     public int calculateSumOfVideos(){
         return channels.stream()
-                .mapToInt(Channel::getNumber_of_videos)
+                .mapToInt(Channel::getNumberOfVideos)
                 .sum();
     }
 

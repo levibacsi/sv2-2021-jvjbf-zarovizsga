@@ -5,8 +5,8 @@ public class InternationalPackage implements Transportable{
     private boolean breakable;
     private String destinationCountry;
     private int distance;
-    private int INTERNATIONAL_PRICE = 1200;
-    private int PRICE_BY_KM = 10;
+    private static final int INTERNATIONAL_PRICE = 1200;
+    private static final int PRICE_BY_KM = 10;
 
     public InternationalPackage(int weight, boolean breakable, String destinationCountry, int distance) {
         this.weight = weight;

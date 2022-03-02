@@ -3,12 +3,12 @@ package videos;
 public class Channel {
     private String channel;
     private int subscriptions;
-    private int number_of_videos;
+    private int numberOfVideos;
 
-    public Channel(String channel, int subscriptions, int number_of_videos) {
+    public Channel(String channel, int subscriptions, int numberOfVideos) {
         this.channel = channel;
         this.subscriptions = subscriptions;
-        this.number_of_videos = number_of_videos;
+        this.numberOfVideos = numberOfVideos;
     }
 
     public String getChannelName() {
@@ -19,7 +19,7 @@ public class Channel {
         return subscriptions;
     }
 
-    public int getNumber_of_videos() {
-        return number_of_videos;
+    public int getNumberOfVideos() {
+        return numberOfVideos;
     }
 }

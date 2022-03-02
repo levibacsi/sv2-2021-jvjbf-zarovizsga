@@ -3,7 +3,7 @@ package shipping;
 public class NationalPackage implements Transportable{
     private int weight;
     private boolean breakable;
-    private int NATIONAL_PRICE = 1000;
+    private static final int NATIONAL_PRICE = 1000;
 
     public NationalPackage(int weight, boolean breakable) {
         this.weight = weight;
